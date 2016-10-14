@@ -2,7 +2,7 @@
 sf1 <- function() {
   
   
-getwd()
+print(getwd())
 Ls()
   
   
