@@ -1,8 +1,8 @@
 #
 sf1 <- function() {
   
-  '. bb'
-getwd()
+  ' Hello World '
+  getwd()
 
  
   
