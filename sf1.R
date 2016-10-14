@@ -1,9 +1,9 @@
 #
 sf1 <- function() {
   
-  ' Hello World '
-  getwd()
+  ' Hello again World '
+  print(getwd())
+Ls()
 
  
-  
-  }
+}
