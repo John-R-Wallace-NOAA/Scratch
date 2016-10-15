@@ -1,1 +1,1 @@
-imap(world.f.land, z=F)
+imap(world.f.land, ant= F, z=F)
