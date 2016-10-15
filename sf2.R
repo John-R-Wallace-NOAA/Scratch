@@ -1,7 +1,6 @@
 sf2  <- function() {
 
-"Hello from distirct 12."
+install.packages("rgdal", repos="http://R-Forge.R-project.org")
 
-"(::"
 
 }
