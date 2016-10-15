@@ -1,6 +1,6 @@
 sf3 <- function() {
 
-  imap(world.f.land, ant= T, z=F, col.poly = 'green')
+  imap(world.f.land, ant= T, z=F, poly = 'green')
 
 
 
