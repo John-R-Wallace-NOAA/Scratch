@@ -8,11 +8,13 @@ sf2  <- function() {
 # gitAFile("https://raw.githubusercontent.com/John-R-Wallace/R-ToolBox/blob/master/R/match.f.R", run = run, show = show)
 
 
-gitAFile("https://github.com/John-R-Wallace/R-ToolBox/blob/master/R/match.f.R", run = run, show = show)
+gitAFile("https://rawgit.com/John-R-Wallace/R-ToolBox/master/R/match.f.R", run = run, show = show)
 
 
 
-# https://github.com/John-R-Wallace/R-ToolBox/blob/master/R/match.f.R
+# https://github.com/John-R-Wallace/R-ToolBox/master/R/match.f.R
+
+# https://rawgit.com/John-R-Wallace/R-ToolBox/master/R/match.f.R
 
 
 }
