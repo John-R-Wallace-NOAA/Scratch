@@ -1,4 +1,4 @@
-sf2  <- function() {
+# sf2  <- function() {
 
 # install.packages("rgdal", repos="http://R-Forge.R-project.org")
 
@@ -17,4 +17,4 @@ gitAFile("https://raw.githubusercontent.com/John-R-Wallace/R-ToolBox/master/R/ma
 # https://raw.githubusercontent.com/John-R-Wallace/R-ToolBox/master/R/match.f.R
 
 
-}
+# }
