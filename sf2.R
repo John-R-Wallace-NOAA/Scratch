@@ -1,11 +1,11 @@
-# sf2  <- function() {
+sf2  <- function() {
 
 # install.packages("rgdal", repos="http://R-Forge.R-project.org")
 
 # devtools::install_version("rgdal", version="1.1-8")
 
 
-gitAFile("https://raw.githubusercontent.com/John-R-Wallace/R-ToolBox/master/R/match.f.R/", run = F, show = T, File = 'object2.R')
+gitAFile("https://raw.githubusercontent.com/John-R-Wallace/R-ToolBox/master/R/match.f.R2", run = F, show = T, File = 'object2.R')
 
 # gitAFile("https://rawgit.com/John-R-Wallace/R-ToolBox/master/R/match.f.R", run = run, show = show)
 
@@ -15,5 +15,4 @@ gitAFile("https://raw.githubusercontent.com/John-R-Wallace/R-ToolBox/master/R/ma
 
 # https://raw.githubusercontent.com/John-R-Wallace/R-ToolBox/master/R/match.f.R
 
-
-# }
+}
