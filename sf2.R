@@ -5,12 +5,10 @@ sf2  <- function() {
 # devtools::install_version("rgdal", version="1.1-8")
 
 
-gitAFile("https://raw.githubusercontent.com/John-R-Wallace/R-ToolBox/master/R/match.f.R", run = run, show = show)
+gitAFile("https://raw.githubusercontent.com/John-R-Wallace/R-ToolBox/master/R/match.f.R/", run = run, show = show)
 
 
 # gitAFile("https://rawgit.com/John-R-Wallace/R-ToolBox/master/R/match.f.R", run = run, show = show)
-
-
 
 # https://github.com/John-R-Wallace/R-ToolBox/master/R/match.f.R
 
