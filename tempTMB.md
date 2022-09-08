@@ -7,7 +7,7 @@ In 2021 Mark Bravington tried to add gdb to RTools 4.0 under Windows without suc
 	
 Regardless, even with Rtools 3.5’s 'C:/Rtools/mingw_64/bin' in the system path so that gdb.exe is available, for the compile options given in the R help for gdbsource(), and for many other options I tried no line numbers are given in the gdb Windows error output. 
 
-A post I recently found on StackOverFlow: https://stackoverflow.com/questions/18407563/gcc-doesnt-produce-line-number-information-even-with-g-option points out a dwarf4 versus dwarf2 options issue under Linux (which might be the cause of @iperedaagirre's TMB Issue #367), but changing that option under Windows didn't help me with line numbers in the gdb.exe error reporting.
+A post I recently found on StackOverFlow: https://stackoverflow.com/questions/18407563/gcc-doesnt-produce-line-number-information-even-with-g-option points out a dwarf4 versus dwarf2 options issue under Linux (which might be the cause of @iperedaagirre's TMB Issue #367), but changing that option under Windows didn't help with line numbers in the gdb.exe error reporting.
 
 When I initially came across this issue under Windows 10, I moved to using gdbsource() only on Linux as an easy fix, since I have a Linux server available to me. However, Andre Punt emailed me about this issue since he was teaching a class that covered TMB and he and his students were using Window machines. After searching for a solution on Windows, I ended using Ubuntu on WSL (Windows Subsystem for Linux): 
 https://github.com/John-R-Wallace-NOAA/TMB_on_Windows_Subsystem_for_Linux 
