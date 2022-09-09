@@ -1,4 +1,4 @@
-## Fixing gdbsource() under Windows with Sys.which(), 'quit' in gdb, Rtools 3.5, and DLLFLAGS="" in the compile call.
+## Fixing gdbsource() under Windows with Sys.which(), 'quit' in gdb, and Rtools 3.5
 
 With a clean install of CRAN R ver 4.2.1 and RTools 4.2, without RTools 3.5 installed, gdbsource() under Windows fails due to a missing gdb.exe. Jeroen Ooms took over maintaining RTools for Windows R from Prof. Brian Ripley and Duncan Murdoch starting with RTools 4.0, and neither RTools 4.0 nor 4.2 have gdb.exe available: https://cran.r-project.org/bin/windows/Rtools/
 
@@ -162,7 +162,7 @@ Putting these three items together gives a function with a verbose error message
   
    
    
-As the TMB issues on gdbsource() do point out, but is still not in the gdbsource's help, < DLLFLAGS="" > is also needed for when using compile() under Windows for debugging.
+
    
 ### Testing gdbsource.win()
    
@@ -173,6 +173,8 @@ On a Windows machine, put the 'simpleError.cpp' and 'simpleError.R' given below 
  
     if(file.exists('simpleError.o')) file.remove(c('simpleError.o'))
     if(file.exists('simpleError.dll')) file.remove(c('simpleError.dll')) # Windows dll 
+    
+    # As in now pointed out in the gdbsource's help, < DLLFLAGS="" > is also needed for when using compile() under Windows for debugging.
     compile('simpleError.cpp', "-O0 -g", DLLFLAGS="")     
       
     gdbsource.win('simpleError.R') 
