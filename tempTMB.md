@@ -1,4 +1,4 @@
-gdbsource() under Windows fails due to the missing gdb.exe under RTools 4.0 and 4.2
+gdbsource() under Windows fails due to the missing gdb.exe under RTools 4.0 and 4.2 and no line numbers on gdb error output under Windows
 
 With a clean install of CRAN R ver 4.2.1 and RTools 4.2, without RTools 3.5 installed, gdbsource() under Windows fails due to a missing gdb.exe.
 Jeroen Ooms took over maintaining RTools for Windows R from Prof. Brian Ripley and Duncan Murdoch starting with RTools 4.0, and neither RTools 4.0 nor 4.2 have gdb.exe available: https://cran.r-project.org/bin/windows/Rtools/  
@@ -16,4 +16,4 @@ https://github.com/John-R-Wallace-NOAA/TMB_on_Windows_Subsystem_for_Linux
 The WSL Ubuntu installation allows gdbsource() to properly debug CPP files while using a PC running Windows 10 as the main OS. It also provides R on an Ubuntu installation with GDB debugging software for any other purpose. Also, WSL saves all the software in a single folder, which can be used for computational reproducibility, exporting to another machine, or sharing with a colleague.
 
 Andre followed the instructions and found them to work for him.  He did want a more complete working environment and asked for graphics beyond the default pdf(), so there are also instructions to add the  X11cairo graphics device, which works well.
-Notes.md on the repo has additional information and Linux_vs_Windows_gdb_errors.md gives a comparison of the Linux GDB output compared to that under Windows. It also shows the use of Sys.which() to always find the correct path for Rterm.exe in .gdbsource.win(). 
+Notes.md on the repo has additional information and Linux_vs_Windows_gdb_errors.md gives a comparison of the Linux GDB output compared to that under Windows. It also shows the use of Sys.which() to always find the correct path for Rterm.exe in .gdbsource.win() which solves the problem of finding the correct Rterm in Issue: gdbsource error #248. 
