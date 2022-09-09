@@ -1,4 +1,4 @@
-Fixing gdbsource under Windows with Sys.which(), 'quit' in gdb, Rtools 3.5, and DLLFLAGS="" in the compile call.
+## Fixing gdbsource under Windows with Sys.which(), 'quit' in gdb, Rtools 3.5, and DLLFLAGS="" in the compile call.
 
 With a clean install of CRAN R ver 4.2.1 and RTools 4.2, without RTools 3.5 installed, gdbsource() under Windows fails due to a missing gdb.exe. Jeroen Ooms took over maintaining RTools for Windows R from Prof. Brian Ripley and Duncan Murdoch starting with RTools 4.0, and neither RTools 4.0 nor 4.2 have gdb.exe available: https://cran.r-project.org/bin/windows/Rtools/
 
