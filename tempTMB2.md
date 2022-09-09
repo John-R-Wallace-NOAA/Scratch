@@ -180,7 +180,7 @@ On a Windows machine, put the 'simpleError.cpp' and 'simpleError.R' given below 
     gdbsource.win('simpleError.R', interactive = TRUE) 
     
     
-    # -- See how not using 'quit' in gdb hangs up R by using the following code --
+    # -- See how not using 'quit' in gdb hangs up R (consistently, but not always) by using the following code --
     file <- 'simpleError.R'
     gdbscript <- tempfile()
     txt <- paste("set breakpoint pending on\nb abort\nrun --vanilla -f", file, "\nbt\n")
