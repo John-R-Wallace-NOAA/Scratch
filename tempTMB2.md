@@ -189,7 +189,8 @@ On a Windows machine, put the 'simpleError.cpp' and 'simpleError.R' given below 
     (cmd <- paste0("gdb ", Sys.which('Rterm'), " -x ", gdbscript))
     # file.show(gdbscript)  # Look at the commands in gdbscript temp file, if desired.
     system(cmd)
-      
+    
+        
 simpleError.cpp
 
     // Normal linear mixed model specified through sparse design matrices.
@@ -240,7 +241,8 @@ simpleError.cpp
     
       return ans;
     }
-    
+  
+  
 simpleError.R
 
     require(TMB)
