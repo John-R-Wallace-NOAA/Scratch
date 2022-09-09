@@ -6,6 +6,8 @@ In 2021 Mark Bravington tried to add gdb to RTools 4.0 under Windows without suc
 
 However for TMB, many of gdbsource() problems under Windows in TMB's issues 'gdbsource Errors #67' and 'gdbsource error #248' are either from Rterm.exe not being found or that the Rterm.exe found in the system path is not the correct one.  The wrong Rterm.exe could be a different version or a mismatch between 32 versus 64-bit.
 
+### Sys.which()
+
 Using base::Sys.which() fixes these problems:
 
     # -- R ver 4.1.2 --    
