@@ -13,23 +13,23 @@ Using base::Sys.which() fixes these problems:
     # -- R ver 4.1.2 --    
     Sys.which('gdb.exe')
                                  gdb.exe 
-    "W:\\Rtools\\mingw_64\\bin\\gdb.exe" 
+    "C:\\Rtools\\mingw_64\\bin\\gdb.exe" 
     
     
     Sys.which('g++.exe')
                                  g++.exe 
-    "W:\\Rtools\\mingw_64\\bin\\g++.exe" 
+    "C:\\Rtools\\mingw_64\\bin\\g++.exe" 
     
     
     # -- R ver 4.2.1 --    
     Sys.which('gdb.exe')
                                  gdb.exe 
-    "W:\\Rtools\\mingw_64\\bin\\gdb.exe" 
+    "C:\\Rtools\\mingw_64\\bin\\gdb.exe" 
     
     
     Sys.which('g++.exe')
                                                           g++.exe 
-    "W:\\rtools42\\x86_64-w64-mingw32.static.posix\\bin\\g++.exe" 
+    "C:\\rtools42\\x86_64-w64-mingw32.static.posix\\bin\\g++.exe" 
     
     
     # -- Within TMB:::.gdbsource.win --        
@@ -65,11 +65,11 @@ Using base::Sys.which() fixes these problems:
 
     # Sys.which() will find the path without being in the system path
     shell("where g++")
-    W:\Rtools\mingw_64\bin\g++.exe
+    C:\Rtools\mingw_64\bin\g++.exe
     
     Sys.which('g++')
                                      g++ 
-    "W:\\Rtools\\mingw_64\\bin\\g++.exe" 
+    "C:\\Rtools\\mingw_64\\bin\\g++.exe" 
     
     
     shell("where Rterm")
@@ -79,7 +79,7 @@ Using base::Sys.which() fixes these problems:
     
     Sys.which('Rterm')
                                   Rterm 
-    "W:\\MRO\\MRO\\bin\\x64\\Rterm.exe" 
+    "C:\\MRO\\MRO\\bin\\x64\\Rterm.exe" 
 
     
 
