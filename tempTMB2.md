@@ -184,7 +184,7 @@ On a Windows machine, put the 'simpleError.cpp' and simpleError.R given below in
       
 simpleError.cpp
 
-   // Normal linear mixed model specified through sparse design matrices.
+    // Normal linear mixed model specified through sparse design matrices.
     #include <TMB.hpp>
     
     template<class Type>
@@ -234,7 +234,6 @@ simpleError.cpp
     }
     
 simpleError.R
-
 
     require(TMB)
     dyn.load(dynlib("simpleError"))
