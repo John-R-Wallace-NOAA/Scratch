@@ -135,7 +135,7 @@ With the latest versions of Windows R, the non-interactive section of TMB:::.gdb
    
 As the TMB issues on gdbsource() do point out, but is still not in the gdbsource's help, < DLLFLAGS="" > is also needed for when using compile() under Windows for debugging.
    
-Put the 'simpleError.cpp' and simpleError.R given below into C:\TMB_Debug and run:
+On a Windows machine, put the 'simpleError.cpp' and simpleError.R given below into C:\TMB_Debug and run:
    
     setwd('C:/TMB_Debug')
     library(TMB)
@@ -143,14 +143,13 @@ Put the 'simpleError.cpp' and simpleError.R given below into C:\TMB_Debug and ru
     if(file.exists('simpleError.o')) file.remove(c('simpleError.o'))
     if(file.exists('simpleError.dll')) file.remove(c('simpleError.dll')) # Windows dll 
     compile('simpleError.cpp', "-O0 -g", DLLFLAGS="")     
-   
-   
+      
     gdbsource.win('simpleError.R') 
    
     gdbsource.win('simpleError.R', interactive = TRUE) 
     
     
-    # -- To see how not using 'quit' in gdb hangs up R by using the following code, use <Esc> to exit --
+    # -- See how not using 'quit' in gdb hangs up R by using the following code --
     file <- 'simpleError.R'
     gdbscript <- tempfile()
     txt <- paste("set breakpoint pending on\nb abort\nrun --vanilla -f", file, "\nbt\n")
