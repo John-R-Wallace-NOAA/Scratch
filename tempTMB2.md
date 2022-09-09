@@ -4,11 +4,9 @@ With a clean install of CRAN R ver 4.2.1 and RTools 4.2, without RTools 3.5 inst
 
 In 2021 Mark Bravington tried to add gdb to RTools 4.0 under Windows without success: https://stat.ethz.ch/pipermail/r-devel/2021-April/080623.html . In response to the Mark's post, Tomas Kalibera points out that Rtools 3.5 can still be used for gdb.exe (just copying over gdb.exe does not work).
 
-However, many of gdbsource() problems under Windows in TMB's issues 'gdbsource Errors #67' and '???????' are from either Rterm.exe not being found or that the Rterm.exe found in the system path is not the correct one.  The wrong Rterm.exe could be a version issue or a mismatch between 32 versus 64-bit.
+However, many of gdbsource() problems under Windows in TMB's issues 'gdbsource Errors #67' and '???????' are from either Rterm.exe not being found or that the Rterm.exe found in the system path is not the correct one.  The wrong Rterm.exe could be different version or a mismatch between 32 versus 64-bit.
 
 Using base::Sys.which() fixes these problems:
-
-
 
     # -- R ver 4.1.2 --    
     Sys.which('gdb.exe')
@@ -32,7 +30,7 @@ Using base::Sys.which() fixes these problems:
     "W:\\rtools42\\x86_64-w64-mingw32.static.posix\\bin\\g++.exe" 
     
     
-    # -- Using Sys.which() within TMB:::.gdbsource.win --        
+    # -- Within TMB:::.gdbsource.win --        
     function (file, interactive = FALSE) 
     {
         gdbscript <- tempfile()
@@ -54,15 +52,16 @@ Using base::Sys.which() fixes these problems:
         }
     }
 
+    # Where:
     (cmd <- paste("gdb Rterm -x", gdbscript))
     [1] "gdb Rterm -x C:\\Users\\JOHN~1.WAL\\AppData\\Local\\Temp\\RtmpsTF7K8\\file139c76027"
         
-    # Rterm.exe always has the full and correct path
+    # Now will always has the full and correct path for Rterm.exe:
     (cmd <- paste0("gdb ", Sys.which('Rterm'), " -x ", gdbscript))
     [1] "gdb W:\\R\\R-4.2.1\\bin\\x64\\Rterm.exe -x C:\\Users\\JOHN~1.WAL\\AppData\\Local\\Temp\\RtmpsTF7K8\\file139c76027"
 
     
-    
+ ### 'quit' in .gdbsource.win    
     
 Like the non-interactive Linux section of gdbsource(), which has a 'quit' for gdb: 
     
@@ -132,7 +131,34 @@ With the latest versions of Windows R, the non-interactive section of TMB:::.gdb
               }
          }
   
+   
+   
+As the TMB issues on gdbsource() do point out, but is still not in the gdbsource's help, < DLLFLAGS="" > is also needed for when using compile() under Windows for debugging.
+   
+Put the 'simpleError.cpp' and simpleError.R given below into C:\TMB_Debug and run:
+   
+    setwd('C:/TMB_Debug')
+    library(TMB)
+ 
+    if(file.exists('simpleError.o')) file.remove(c('simpleError.o'))
+    if(file.exists('simpleError.dll')) file.remove(c('simpleError.dll')) # Windows dll 
+    compile('simpleError.cpp', "-O0 -g", DLLFLAGS="")     
+   
+   
+    gdbsource.win('simpleError.R') 
+   
+    gdbsource.win('simpleError.R', interactive = TRUE) 
     
     
-    
+    # -- To see how not using 'quit' in gdb hangs up R by using the following code, use <Esc> to exit --
+    file <- 'simpleError.R'
+    gdbscript <- tempfile()
+    txt <- paste("set breakpoint pending on\nb abort\nrun --vanilla -f", file, "\nbt\n")
+    cat(txt, file = gdbscript)
+    # cat("quit\n", file = gdbscript, append = TRUE)   # Consistently hangs without the 'quit'. Use <Esc> to exit the hang.
+    (cmd <- paste0("gdb ", Sys.which('Rterm'), " -x ", gdbscript))
+    # file.show(gdbscript)  # Look at the commands in gdbscript temp file, if desired.
+    system(cmd)
+      
+      
     
