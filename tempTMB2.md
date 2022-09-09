@@ -60,6 +60,26 @@ Using base::Sys.which() fixes these problems:
     (cmd <- paste0("gdb ", Sys.which('Rterm'), " -x ", gdbscript))
     [1] "gdb W:\\R\\R-4.2.1\\bin\\x64\\Rterm.exe -x C:\\Users\\JOHN~1.WAL\\AppData\\Local\\Temp\\RtmpsTF7K8\\file139c76027"
 
+    # Sys.which() will find the path without being in the system path
+    shell("where g++")
+    W:\Rtools\mingw_64\bin\g++.exe
+    
+    Sys.which('g++')
+                                     g++ 
+    "W:\\Rtools\\mingw_64\\bin\\g++.exe" 
+    
+    
+    shell("where Rterm")
+    INFO: Could not find files for the given pattern(s).
+    Warning message:
+    In shell("where Rterm") : 'where Rterm' execution failed with error code 1
+    
+    Sys.which('Rterm')
+                                  Rterm 
+    "W:\\MRO\\MRO\\bin\\x64\\Rterm.exe" 
+
+    
+
     
  ### 'quit' in .gdbsource.win    
     
