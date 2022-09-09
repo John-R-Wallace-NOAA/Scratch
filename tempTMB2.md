@@ -164,7 +164,7 @@ Putting these 3 items together gives:
    
 As the TMB issues on gdbsource() do point out, but is still not in the gdbsource's help, < DLLFLAGS="" > is also needed for when using compile() under Windows for debugging.
    
-On a Windows machine, put the 'simpleError.cpp' and simpleError.R given below into C:\TMB_Debug and run:
+On a Windows machine, put the 'simpleError.cpp' and 'simpleError.R' given below into C:\TMB_Debug and run:
    
     setwd('C:/TMB_Debug')
     library(TMB)
