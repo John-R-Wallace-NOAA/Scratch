@@ -128,7 +128,7 @@ With the latest versions of Windows R, the non-interactive section of TMB:::.gdb
 
  ### Putting everthing together
  
-Putting these 3 items together gives:
+Putting these three items together gives a function with a verbose error message for now:
 
 
     gdbsource.win <- function (file, interactive = FALSE) 
@@ -163,6 +163,8 @@ Putting these 3 items together gives:
    
    
 As the TMB issues on gdbsource() do point out, but is still not in the gdbsource's help, < DLLFLAGS="" > is also needed for when using compile() under Windows for debugging.
+   
+### Testing gdbsource.win()
    
 On a Windows machine, put the 'simpleError.cpp' and 'simpleError.R' given below into C:\TMB_Debug and run:
    
