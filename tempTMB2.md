@@ -60,7 +60,7 @@ Using base::Sys.which() fixes these problems:
         
     # But using Sys.which() always gives the full and correct path for Rterm.exe using the current version of R being used:
     (cmd <- paste0("gdb ", Sys.which('Rterm'), " -x ", gdbscript))
-    [1] "gdb W:\\R\\R-4.2.1\\bin\\x64\\Rterm.exe -x C:\\Users\\JOHN~1.WAL\\AppData\\Local\\Temp\\RtmpsTF7K8\\file139c76027"
+    [1] "gdb C:\\R\\R-4.2.1\\bin\\x64\\Rterm.exe -x C:\\Users\\JOHN~1.WAL\\AppData\\Local\\Temp\\RtmpsTF7K8\\file139c76027"
     
 
     # Sys.which() will find the path without being in the system path
