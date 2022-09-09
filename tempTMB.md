@@ -16,4 +16,10 @@ https://github.com/John-R-Wallace-NOAA/TMB_on_Windows_Subsystem_for_Linux
 The WSL Ubuntu installation allows gdbsource() to properly debug CPP files while using a PC running Windows 10 as the main OS. It also provides R on an Ubuntu installation with GDB debugging software for any other purpose. Also, WSL saves all the software in a single folder, which can be used for computational reproducibility, exporting to another machine, or sharing with a colleague.
 
 Andre followed the instructions and found them to work for him.  He did want a more complete working environment and asked for graphics beyond the default pdf(), so there are also instructions to add the  X11cairo graphics device, which works well.
-Notes.md on the repo has additional information and Linux_vs_Windows_gdb_errors.md gives a comparison of the Linux GDB output compared to that under Windows. It also shows the use of Sys.which() to always find the correct path for Rterm.exe in .gdbsource.win() which solves the problem of finding the correct Rterm in Issue: gdbsource error #248. 
+Notes.md on the repo has additional information and Linux_vs_Windows_gdb_errors.md gives a comparison of the Linux GDB output compared to that under Windows. It also shows the use of Sys.which() to always find the correct path for Rterm.exe in .gdbsource.win() which solves the problem of finding the correct Rterm in Issue: 'gdbsource error #248'. 
+
+In Issue #248 @skaug says that:
+
+gdbsource("file.R",interactive=FALSE)
+
+worked for him in previous versions of R/Rtools. Pulling those older gdb.exe's out of Rtools 3.3 or 3.4 does not work for me.
