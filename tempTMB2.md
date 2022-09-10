@@ -32,7 +32,7 @@ Using base::Sys.which() fixes these problems:
     "C:\\rtools42\\x86_64-w64-mingw32.static.posix\\bin\\g++.exe" 
     
     
-    # -- Within TMB:::.gdbsource.win --        
+    # -- For Windows TMB:::.gdbsource.win is called --        
     function (file, interactive = FALSE) 
     {
         gdbscript <- tempfile()
