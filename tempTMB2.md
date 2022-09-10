@@ -138,7 +138,7 @@ Putting these three items together gives a proof of concept function with a verb
                       and Rtools 3.5 (Rtools35.exe) for gdb.exe. Make sure Rtools 3.5's path: 'C:\\Rtools\\mingw_64\\bin' 
                       is included in the system path. A properly installed Rtools 4.2 will prepend its path to the
                       system path within R and hence will always be in front of the Rtools 3.5 path. 
-                      View the path using: shell('path'). (Rtools 4.0 has issues and is not recommended.)")
+                      View the path using: shell('path'). (Rtools 4.0 has less functionality and is not recommended.)")
                       
              }         
              gdbscript <- tempfile()
