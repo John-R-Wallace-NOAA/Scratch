@@ -1,4 +1,4 @@
-## Fixing gdbsource() under Windows with Sys.which(), 'quit' in gdb, and Rtools 3.5
+## Improving gdbsource() under Windows with Sys.which(), 'quit' in gdb, and Rtools 3.5
 
 With a clean install of CRAN R ver 4.2.1 and RTools 4.2, without RTools 3.5 installed, gdbsource() under Windows fails due to a missing gdb.exe. Jeroen Ooms took over maintaining RTools for Windows R from Prof. Brian Ripley and Duncan Murdoch starting with RTools 4.0, and neither RTools 4.0 nor 4.2 have gdb.exe available: https://cran.r-project.org/bin/windows/Rtools/
 
@@ -54,7 +54,7 @@ Using base::Sys.which() fixes these problems:
         }
     }
 
-    # Where:
+    # Where, without Sys.which():
     (cmd <- paste("gdb Rterm -x", gdbscript))
     [1] "gdb Rterm -x C:\\Users\\JOHN~1.WAL\\AppData\\Local\\Temp\\RtmpsTF7K8\\file139c76027"
         
@@ -81,14 +81,12 @@ Using base::Sys.which() fixes these problems:
                                   Rterm 
     "C:\\MRO\\MRO\\bin\\x64\\Rterm.exe" 
 
-    
-
-    
+        
  ### 'quit' in .gdbsource.win    
     
-Like the non-interactive Linux section of gdbsource(), which has a 'quit' for gdb: 
+Like the non-interactive Linux section of gdbsource(), which has a 'quit' for gdb after the 'else':
     
-    gdbsource <-   function (file, interactive = FALSE) 
+    gdbsource <-  function (file, interactive = FALSE) 
     {
         if (!file.exists(file)) 
             stop("File '", file, "' not found")
@@ -122,11 +120,10 @@ Like the non-interactive Linux section of gdbsource(), which has a 'quit' for gd
     bt
     quit
     
-
     
-With the latest versions of Windows R, the non-interactive section of TMB:::.gdbsource.win() also needs a 'quit' for gdb (see below). I say latest versions here because @skuag says back in 2018 in Issue 'gdbsource error #248' that "[gdbsource()] ... has worked for me in previous versions of R/Rtools"  
+The non-interactive section of TMB:::.gdbsource.win() also needs a 'quit' for gdb (see below). This may be a newer development with later versions of R, since @skuag wrote back in 2018 in Issue 'gdbsource error #248' that "[gdbsource()] ... has worked for me in previous versions of R/Rtools"  
 
- ### Putting everthing together
+ ### Putting everything together
  
 Putting these three items together gives a function with a verbose error message for now:
 
@@ -160,10 +157,7 @@ Putting these three items together gives a function with a verbose error message
               }
          }
   
-   
-   
-
-   
+  
 ### Testing gdbsource.win()
    
 On a Windows machine, put the 'simpleError.cpp' and 'simpleError.R' given below into C:\TMB_Debug and run:
@@ -174,7 +168,7 @@ On a Windows machine, put the 'simpleError.cpp' and 'simpleError.R' given below 
     if(file.exists('simpleError.o')) file.remove(c('simpleError.o'))
     if(file.exists('simpleError.dll')) file.remove(c('simpleError.dll')) # Windows dll 
     
-    # As in now pointed out in the gdbsource's help, < DLLFLAGS="" > is also needed for when using compile() under Windows for debugging.
+    # As is now pointed out in the gdbsource's help, < DLLFLAGS="" > is also needed for when using compile() under Windows for debugging.
     compile('simpleError.cpp', "-O0 -g", DLLFLAGS="")     
       
     gdbsource.win('simpleError.R') 
