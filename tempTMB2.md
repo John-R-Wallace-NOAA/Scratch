@@ -192,7 +192,8 @@ On a Windows machine, put the 'simpleError.cpp' and 'simpleError.R' given below 
  ### A note on editing the system path in Windows 10
 To edit the user system path and other variables on a Windows 10 machine without admin rights, search for 'env' and click on 'Edit environmental variables for your account'. With admin rights, search for 'env', select 'Edit the system evironmental variables', select the 'Advanced' tab and click on 'Environmental Variables' at the bottom.    
     
-        
+---
+
 simpleError.cpp
 
     // Normal linear mixed model specified through sparse design matrices.
@@ -244,7 +245,8 @@ simpleError.cpp
       return ans;
     }
   
-  
+ ---
+ 
 simpleError.R
 
     require(TMB)
