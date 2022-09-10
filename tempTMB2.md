@@ -125,7 +125,7 @@ The non-interactive section of TMB:::.gdbsource.win() also needs a 'quit' for gd
 
  ### Putting everything together
  
-Putting these three items together gives a function with a verbose error message for now:
+Putting these three items together gives a proof of concept function with a verbose error message:
 
 
     gdbsource.win <- function (file, interactive = FALSE) 
@@ -133,11 +133,13 @@ Putting these three items together gives a function with a verbose error message
              if(Sys.which('gdb.exe') == "") {
                  print(Sys.which('gdb.exe')); cat('\n')
                  print(Sys.which('g++.exe')); cat('\n')             
-                 stop("gdb.exe not found. 
-                      Until a new version of Rtools includes gdb.exe, please install both Rtools 4.2
-                      and Rtools 3.5 (Rtools35.exe) for gdb.exe. Make sure 'C:\\Rtools\\mingw_64\\bin' is in the system path.
-                      A properly installed Rtools 4.2 will prepend its path to the system path within R and hence
-                      will always be in front of the Rtools 3.5 path. View the path using: shell('path')")
+                 stop("gdb.exe was not found. 
+                      Until a new version of Rtools includes gdb.exe, please install both Rtools 4.2 (R >= 4.2.0)
+                      and Rtools 3.5 (Rtools35.exe) for gdb.exe. Make sure Rtools 3.5's path: 'C:\\Rtools\\mingw_64\\bin' 
+                      is included in the system path. A properly installed Rtools 4.2 will prepend its path to the
+                      system path within R and hence will always be in front of the Rtools 3.5 path. 
+                      View the path using: shell('path'). (Rtools 4.0 has issues and is not recommended.)")
+                      
              }         
              gdbscript <- tempfile()
              txt <- paste("set breakpoint pending on\nb abort\nrun --vanilla -f", file, "\nbt\n")
@@ -166,9 +168,9 @@ On a Windows machine, put the 'simpleError.cpp' and 'simpleError.R' given below 
     library(TMB)
  
     if(file.exists('simpleError.o')) file.remove(c('simpleError.o'))
-    if(file.exists('simpleError.dll')) file.remove(c('simpleError.dll')) # Windows dll 
+    if(file.exists('simpleError.dll')) file.remove(c('simpleError.dll'))
     
-    # As is now pointed out in the gdbsource's help, < DLLFLAGS="" > is also needed for when using compile() under Windows for debugging.
+    # As is now pointed out in the gdbsource's help, < DLLFLAGS="" > is also needed when using compile() for debugging under Windows.
     compile('simpleError.cpp', "-O0 -g", DLLFLAGS="")     
       
     gdbsource.win('simpleError.R') 
@@ -177,11 +179,12 @@ On a Windows machine, put the 'simpleError.cpp' and 'simpleError.R' given below 
     
     
     # -- See how not using 'quit' in gdb hangs up R (consistently, but not always) by using the following code --
+    # R responds with: "Child process not responding, R will terminate it."
     file <- 'simpleError.R'
     gdbscript <- tempfile()
     txt <- paste("set breakpoint pending on\nb abort\nrun --vanilla -f", file, "\nbt\n")
     cat(txt, file = gdbscript)
-    # cat("quit\n", file = gdbscript, append = TRUE)   # Consistently hangs without the 'quit'. Use <Esc> to exit the hang.
+    cat("quit\n", file = gdbscript, append = TRUE)   # Consistently hangs without the 'quit'. Use <Esc> to exit the hang.
     (cmd <- paste0("gdb ", Sys.which('Rterm'), " -x ", gdbscript))
     # file.show(gdbscript)  # Look at the commands in gdbscript temp file, if desired.
     system(cmd)
