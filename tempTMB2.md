@@ -125,7 +125,7 @@ The non-interactive section of TMB:::.gdbsource.win() also needs a 'quit' for gd
 
  ### Putting everything together
  
-Putting these three items together gives a proof of concept function with a verbose error message:
+Putting these three items together gives a function with a verbose error message for now:
 
 
     gdbsource.win <- function (file, interactive = FALSE) 
