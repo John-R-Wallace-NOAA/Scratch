@@ -167,8 +167,8 @@ On a Windows machine, put the 'simpleError.cpp' and 'simpleError.R' given below 
     setwd('C:/TMB_Debug')
     library(TMB)
     
-    Sys.which('gdb.exe')
     Sys.which('g++.exe')
+    Sys.which('gdb.exe')
  
     if(file.exists('simpleError.o')) file.remove(c('simpleError.o'))
     if(file.exists('simpleError.dll')) file.remove(c('simpleError.dll'))
