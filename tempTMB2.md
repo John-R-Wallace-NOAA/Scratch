@@ -162,7 +162,7 @@ Putting these three items together gives a proof of concept function with a verb
   
 ### Testing gdbsource.win()
    
-On a Windows machine, put the 'simpleError.cpp' and 'simpleError.R' given below into C:\TMB_Debug and run:
+On a Windows machine, put the 'simpleError.cpp' and 'simpleError.R' given below into C:\TMB_Debug and under R ver 4.2 run:
    
     setwd('C:/TMB_Debug')
     library(TMB)
