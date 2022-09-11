@@ -159,6 +159,8 @@ Putting these three items together gives a function with a verbose error message
               }
          }
   
+ Any older verssions of R with Brian Ripley and Duncan Murdoch's Rtools will have gdb.exe and the error message will not be seen.
+  
   
 ### Testing gdbsource.win()
    
@@ -228,7 +230,7 @@ simpleError.cpp
       ans -= dnorm(x, y, exp(logsd0), true).sum();
       
       vector<Type> f(4);
-      f(5) = 3;                // 5 is not a valid index value here
+      f(5) = 3;                // 5 is not a valid index value here - line 30
     
       // Optionally: How to simulate the data
       SIMULATE {
