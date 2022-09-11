@@ -159,7 +159,7 @@ Putting these three items together gives a function with a verbose error message
               }
          }
   
- Any older verssions of R with Brian Ripley and Duncan Murdoch's Rtools will have gdb.exe and the error message will not be seen.
+Older versions of R using Brian Ripley and Duncan Murdoch's Rtools will have a gdb.exe and the error message will not be seen.
   
   
 ### Testing gdbsource.win()
