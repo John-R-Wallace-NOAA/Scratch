@@ -4,7 +4,7 @@ With a clean install of CRAN R ver 4.2.1 and Rtools 4.2, without Rtools 3.5 inst
 
 In 2021 Mark Bravington tried to add gdb to Rtools 4.0 under Windows without success: https://stat.ethz.ch/pipermail/r-devel/2021-April/080623.html . In response to the Mark's post (and as I independently discovered), Tomas Kalibera points out that Rtools 3.5 can still be used for gdb.exe (just copying over gdb.exe does not work).
 
-However for TMB, many of gdbsource() problems under Windows in TMB's issues 'gdbsource Errors #67' and 'gdbsource error #248' are either from Rterm.exe not being found or that the Rterm.exe found in the system path is not the correct one.  The wrong Rterm.exe could be a different version or a mismatch between 32 versus 64-bit. You may get a setup working, but it is easily broken.
+However for TMB, many of gdbsource() problems under Windows in TMB's Issues [#67](https://github.com/kaskr/adcomp/issues/67) and [#248](https://github.com/kaskr/adcomp/issues/248) are either from Rterm.exe not being found or that the Rterm.exe found in the system path is not the correct one.  The wrong Rterm.exe could be a different version or a mismatch between 32 versus 64-bit. You may get a setup working, but it is easily broken.
 
 ### Sys.which()
 
@@ -121,7 +121,7 @@ Like the non-interactive Linux section of gdbsource(), which has a 'quit' for gd
     quit
     
     
-The non-interactive section of TMB:::.gdbsource.win() also needs a 'quit' for gdb (see below). This may be a newer development with later versions of R, since  [@skuag](https://github.com/skaug) wrote back in 2018 in Issue 'gdbsource error #248' that "[gdbsource()] ... has worked for me in previous versions of R/Rtools.".  
+The non-interactive section of TMB:::.gdbsource.win() also needs a 'quit' for gdb (see below). This may be a newer development with later versions of R, since  [@skuag](https://github.com/skaug) wrote back in 2018 in Issue [#248](https://github.com/kaskr/adcomp/issues/248) that "[gdbsource()] ... has worked for me in previous versions of R/Rtools.".  
 
  ### Putting everything together
  
