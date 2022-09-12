@@ -84,7 +84,7 @@ Using base::Sys.which() fixes these problems:
         
  ### 'quit' in .gdbsource.win    
     
-Like the non-interactive Linux section of gdbsource(), which has a 'quit' for gdb (after 'else {'):
+Like the non-interactive Linux section of gdbsource(), which has a 'quit' for gdb (in the line after 'else {'):
     
     gdbsource <-  function (file, interactive = FALSE) 
     {
