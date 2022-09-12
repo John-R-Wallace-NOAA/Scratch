@@ -179,11 +179,13 @@ On a Windows machine, put the 'simpleError.cpp' and 'simpleError.R' given below 
     compile('simpleError.cpp', "-O0 -g", DLLFLAGS="")     
       
     gdbsource.win('simpleError.R') 
-   
+    # # Errors: 
+    # #      this=0x1d6abfa000) at simpleError.cpp:30 
+
     gdbsource.win('simpleError.R', interactive = TRUE) 
     
     
-    # -- See how not using 'quit' in gdb hangs up R (consistently, but not always) by using the following code --
+    # -- See how not using 'quit' in gdb hangs up R (consistently, but not always it seems) by using the following code --
     # R responds with: "Child process not responding, R will terminate it."
     file <- 'simpleError.R'
     gdbscript <- tempfile()
