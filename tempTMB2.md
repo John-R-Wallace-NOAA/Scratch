@@ -121,7 +121,7 @@ Like the non-interactive Linux section of gdbsource(), which has a 'quit' for gd
     quit
     
     
-The non-interactive section of TMB:::.gdbsource.win() also needs a 'quit' for gdb (see below). This may be a newer development with later versions of R, since  [@skuag](https://github.com/skaug) wrote back in 2018 in Issue [#248](https://github.com/kaskr/adcomp/issues/248) that "[gdbsource()] ... has worked for me in previous versions of R/Rtools.".  
+the non-interactive section of TMB:::.gdbsource.win() also needs a 'quit' for gdb (see below). This may be a newer development with later versions of R, since  [@skuag](https://github.com/skaug) wrote back in 2018 in Issue [#248](https://github.com/kaskr/adcomp/issues/248) that "[gdbsource()] ... has worked for me in previous versions of R/Rtools.".  
 
  ### Putting everything together
  
